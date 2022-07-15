@@ -1,0 +1,15 @@
+.row .add {
+    border: none;
+    width: 6rem;
+}
+
+.add-img {
+    height: 1rem;
+    aspect-ratio: 1/1;
+    background: url("../../plus.png") center center/cover;
+    cursor: pointer;
+}
+
+.add-guest {
+    margin-bottom: 5rem;
+}

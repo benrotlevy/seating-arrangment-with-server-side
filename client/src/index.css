@@ -1,0 +1,18 @@
+:root {
+    --blue: rgb(0,59,93);
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    /* margin-bottom: 5rem; */
+}
+
+@media(max-width: 720px) {
+    html {
+        font-size: 10px;
+    }
+}

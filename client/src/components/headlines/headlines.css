@@ -1,0 +1,18 @@
+.headline {
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    height: 2rem;
+}
+
+.headline:hover {
+    font-size: large;
+}
+
+.row .empty {
+    border: none;
+    width: 6rem;
+}

@@ -1,0 +1,29 @@
+.spinner-container {
+    height: 100%;
+    width: 100%;
+    background-color: rgba(204, 204, 204, 0.649);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.spinner {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 5px lightgrey solid;
+    border-top: var(--blue) 5px solid;
+    animation: round 1s linear infinite;
+}
+
+@keyframes round {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

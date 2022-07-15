@@ -1,0 +1,55 @@
+.row {
+    display: flex;
+}
+
+.cell {
+    border: 1px black solid;
+    border-collapse: collapse;
+    width: 10rem;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 0.2rem;
+}
+
+.cell input, .cell select {
+    width: 95%;
+}
+
+.edit-delete {
+    border: none;
+    width: 6rem;
+}
+
+.save {
+    background: url("../../check.png") center center/cover;
+    height: 1rem;
+    aspect-ratio: 1/1;
+}
+.edit {
+    background: url("../../pencil.png") center center/cover;
+    height: 1rem;
+    aspect-ratio: 1/1;
+}
+.cancel {
+    background: url("../../close.png") center center/cover;
+    height: 1rem;
+    aspect-ratio: 1/1;
+    margin-left: 0.5rem;
+}
+.delete {
+    background: url("../../trash.png") center center/cover;
+    height: 1rem;
+    aspect-ratio: 1/1;
+    margin-left: 0.5rem;
+}
+
+
+@media(max-width: 1000px) {
+    .cell {
+        width: 6rem;
+    }
+    .gender {
+        width: 3.5rem;
+    }
+}

@@ -1,0 +1,18 @@
+.search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-bottom: 5rem; */
+}
+
+.filter {
+    margin: 0 1rem;
+}
