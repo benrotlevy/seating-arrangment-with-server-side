@@ -1,6 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { guestsAPI } from "../../api/api";
+import { usersAPI } from "../../api/api";
+import { BigTable } from "../bigTable/BigTable";
+import { LongTable } from "../longTable/LongTable";
+import { RoundTable } from "../roundTable/RoundTable";
+import { SquareTable } from "../square-table/SquareTable";
 import "./mapTables.css";
 
 const MapTables = () => {
@@ -38,18 +42,18 @@ const MapTables = () => {
     31: { numOfChairs: 12, map: [] },
   });
 
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const { data } = await guestsAPI.get("/");
-        extractTablesData(data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   const getData = async () => {
+  //     try {
+  //       const { data } = await usersAPI.get("/");
+  //       extractTablesData(data);
+  //     } catch (error) {
+  //       console.log(error);
+  //     }
+  //   };
+  //   getData();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const extractTablesData = (guestsList) => {
     const tables = {};
@@ -127,68 +131,14 @@ const MapTables = () => {
 
   return (
     <div className="map-container">
-      <svg
-        id="eIadmDAU1CR1"
-        xmlns="http://www.w3.org/2000/svg"
-        xmlnsXlink="http://www.w3.org/1999/xlink"
-        viewBox="0 0 1000 650"
-        shape-rendering="geometricPrecision"
-        text-rendering="geometricPrecision"
-        onClick={({ target }) => {
-          console.dir(target);
-        }}
-      >
-        <line
-          x1="0"
-          y1="-336.784465"
-          x2="0"
-          y2="336.784466"
-          transform="translate(0 336.784466)"
-          fill="none"
-          stroke="#3f5787"
-          stroke-width="3"
-        />
-        <rect
-          data-id="31"
-          width="37.196049"
-          height="35.25"
-          rx="0"
-          ry="0"
-          transform="translate(152.602517 226.729275)"
-          fill={isFull(31) ? "#003B5D" : "#d2dbed"}
-          stroke="#000"
-        />
-        <line
-          x1="0"
-          y1="-328.409718"
-          x2="0"
-          y2="328.409718"
-          transform="translate(1000 328.409719)"
-          fill="none"
-          stroke="#3f5787"
-          stroke-width="3"
-        />
-        <line
-          x1="-500"
-          y1="0"
-          x2="500"
-          y2="0"
-          transform="translate(500 650)"
-          fill="none"
-          stroke="#3f5787"
-          stroke-width="3"
-        />
-        <line
-          x1="-503.93429"
-          y1="0"
-          x2="503.934291"
-          y2="0.000001"
-          transform="translate(503.934291 0.000001)"
-          fill="none"
-          stroke="#3f5787"
-          stroke-width="3"
-        />
-      </svg>
+      {/* <RoundTable guestsList={[1, 4, 6, 7, 7, 7, 7, 7, 7]}></RoundTable>
+      <SquareTable guestsList={[1, 4, 6, 7, 5, 5, 5, 5, 5, 5, 5]}></SquareTable>
+      <LongTable
+        guestsList={[1, 4, 6, 7, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6]}
+      ></LongTable>
+      <BigTable
+        guestsList={[1, 4, 6, 7, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6, 7, 7, 7]}
+      ></BigTable> */}
     </div>
   );
 };

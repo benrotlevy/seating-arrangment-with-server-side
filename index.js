@@ -2,6 +2,7 @@ require("./db/mongoose.js");
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
+const usersRouter = require("./routes/users.routes.js");
 
 const app = express();
 
@@ -12,6 +13,8 @@ app.use(express.static(publicDirectoryPath));
 
 app.use(cors());
 app.use(express.json());
+
+app.use("/users", usersRouter);
 
 app.listen(PORT, () => {
   console.log("SERVER IS UP AND RUNNING ON PORT " + PORT);

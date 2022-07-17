@@ -1,4 +1,9 @@
 import axios from "axios";
 
+let url = "";
 
-export const guestsAPI = axios.create({baseURL: "https://629e0de33dda090f3c126d46.mockapi.io/guests"});
+if (process.env.NODE_ENV === "development") url = "http://localhost:5000/";
+
+export const usersAPI = axios.create({
+  baseURL: url,
+});
