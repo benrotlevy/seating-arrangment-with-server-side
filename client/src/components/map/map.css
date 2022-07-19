@@ -1,0 +1,13 @@
+.matrix-row {
+    display: flex;
+    gap: 3px;
+}
+
+.img-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url("../../../../assets/img/background.jpg") no-repeat center center/cover;
+    padding: 1rem;
+}

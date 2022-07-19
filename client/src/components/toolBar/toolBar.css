@@ -1,0 +1,31 @@
+.tool-bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 10%;
+}
+
+.tables {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tool-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.tool {
+    height: 7rem;
+    width : 7rem;
+}
+
+.chosen {
+    border: 1px black solid;
+}
