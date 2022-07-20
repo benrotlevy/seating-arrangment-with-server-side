@@ -21,7 +21,7 @@ export const Map = ({
     chosenTableType,
     onTableClick,
     chosenTable,
-    setChosenTable,
+    addUsersToArray,
 }) => {
     const { currentUser, setCurrentUser, token } = useAuthContext();
 
@@ -29,11 +29,9 @@ export const Map = ({
 
     useEffect(() => {
         if (currentUser) {
+            // console.log(currentUser);
             setMatrix((prev) => {
-                const newMatrix = [...prev];
-                if (chosenTable.length > 0) {
-                    newMatrix[chosenTable[1]][chosenTable[0]] = 0;
-                }
+                let newMatrix = JSON.parse(JSON.stringify(emptyMatrix));
                 currentUser.tables.forEach((table) => {
                     const x = table.location[0];
                     const y = table.location[1];
@@ -45,7 +43,6 @@ export const Map = ({
     }, [currentUser]);
 
     const handleTableMovment = (x, y) => {
-        // console.log(currentUser);
         const userToSave = JSON.parse(JSON.stringify(currentUser));
         userToSave.tables = userToSave.tables.map((table) => {
             if (
@@ -56,6 +53,7 @@ export const Map = ({
             }
             return table;
         });
+        addUsersToArray(userToSave);
         setCurrentUser(userToSave);
     };
 
@@ -84,6 +82,7 @@ export const Map = ({
         const userToSave = JSON.parse(JSON.stringify(currentUser));
         const newTable = createNewTable(y, x);
         userToSave.tables.push(newTable);
+        addUsersToArray(userToSave);
         setCurrentUser(userToSave);
     };
 

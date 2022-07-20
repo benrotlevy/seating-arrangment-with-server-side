@@ -8,7 +8,7 @@ export const SelectBox = ({ tables, onSelectChange, selectedTable, all }) => {
             if (!isTableFull(table.type, table.guests) || all) {
                 arrOfOptions.push(
                     <option
-                        key={table._id}
+                        key={table.number}
                         value={table.number}
                     >{`Table ${table.number}`}</option>
                 );
@@ -25,7 +25,7 @@ export const SelectBox = ({ tables, onSelectChange, selectedTable, all }) => {
     };
 
     const isTableFull = (type, tableGuests) => {
-        const length = tableGuests.length + 1;
+        const length = tableGuests.length;
         switch (type) {
             case 1:
                 return length === 10;
@@ -35,6 +35,8 @@ export const SelectBox = ({ tables, onSelectChange, selectedTable, all }) => {
                 return length === 12;
             case 4:
                 return length === 18;
+            default:
+                return true;
         }
     };
 

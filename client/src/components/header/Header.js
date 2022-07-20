@@ -3,9 +3,23 @@ import { Link } from "react-router-dom";
 import "./header.css";
 import logoBig from "../../logo-big.png";
 import { useAuthContext } from "../context/Context";
+import { usersAPI } from "../../api/api";
 
 export const Header = () => {
     const { token, setCurrentUser, setToken } = useAuthContext();
+    const logout = async () => {
+        try {
+            await usersAPI.post(
+                "/users/logout",
+                {},
+                {
+                    headers: { Authorization: "Bearer " + token },
+                }
+            );
+        } catch (error) {
+            console.log(error);
+        }
+    };
     return (
         <>
             <nav className="nav-container">
@@ -30,6 +44,7 @@ export const Header = () => {
                     {token ? (
                         <p
                             onClick={() => {
+                                logout();
                                 setToken("");
                                 setCurrentUser("");
                             }}
@@ -37,7 +52,9 @@ export const Header = () => {
                             Logout
                         </p>
                     ) : (
-                        <Link to="./login">Login</Link>
+                        <Link to="./login">
+                            <p>Login</p>
+                        </Link>
                     )}
                 </div>
             </nav>

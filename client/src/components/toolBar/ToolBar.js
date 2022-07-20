@@ -1,21 +1,61 @@
+import { useState } from "react";
 import { usersAPI } from "../../api/api";
 import { useAuthContext } from "../context/Context";
+import { Spinner } from "../spinner/Spinner";
 import "./toolBar.css";
 
-export const ToolBar = ({ chosen, onToolClick }) => {
-    const { token, currentUser } = useAuthContext();
+export const ToolBar = ({
+    chosen,
+    onToolClick,
+    changePointer,
+    chosenTableLocation,
+    addUsersToArray,
+}) => {
+    const { token, currentUser, setCurrentUser } = useAuthContext();
+    const [spinner, setSpinner] = useState(false);
+
+    const deleteTable = () => {
+        if (!chosenTableLocation[0]) return;
+        let tableNum = null;
+        let guestsToChange = [];
+        const userToSave = JSON.parse(JSON.stringify(currentUser));
+        userToSave.tables = userToSave.tables.filter((table) => {
+            if (
+                table.location[0] === chosenTableLocation[0] &&
+                table.location[1] === chosenTableLocation[1]
+            ) {
+                tableNum = table.number;
+                guestsToChange = table.guests;
+                return false;
+            }
+            return true;
+        });
+        if (guestsToChange[0]) {
+            userToSave.guests.forEach((guest) => {
+                if (guest.table === tableNum.toString()) guest.table = "";
+            });
+        }
+        addUsersToArray(userToSave);
+        setCurrentUser(userToSave);
+    };
 
     const saveData = async () => {
         const newObj = { tables: currentUser.tables };
         try {
-            const { data } = await usersAPI.patch("/users/me", newObj, {
+            setSpinner(true);
+            await usersAPI.patch("/users/me", newObj, {
                 headers: { Authorization: "Bearer " + token },
             });
-            // console.log(data);
+            setSpinner(false);
         } catch (error) {
+            setSpinner(false);
             console.log(error);
         }
     };
+
+    if (spinner) {
+        return <Spinner />;
+    }
 
     return (
         <div className="tool-bar">
@@ -574,7 +614,16 @@ export const ToolBar = ({ chosen, onToolClick }) => {
                 </div>
             </div>
             <div className="tool-buttons">
-                <button onClick={saveData}>Save</button>
+                <button
+                    className="undo"
+                    onClick={() => changePointer(-1)}
+                ></button>
+                <button
+                    className="redo"
+                    onClick={() => changePointer(1)}
+                ></button>
+                <button className="delete" onClick={deleteTable}></button>
+                <button className="save" onClick={saveData}></button>
             </div>
         </div>
     );

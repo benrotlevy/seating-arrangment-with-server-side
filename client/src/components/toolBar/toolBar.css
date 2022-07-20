@@ -21,6 +21,14 @@
     align-items: center;
 }
 
+.tool-buttons button{
+    margin: 10px;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    border: none;
+}
+
 .tool {
     height: 7rem;
     width : 7rem;
@@ -29,3 +37,20 @@
 .chosen {
     border: 1px black solid;
 }
+
+.tool-buttons .delete {
+    background: url("../../../../assets/img/delete.png") center center/cover;
+}
+
+.tool-buttons .undo {
+    background: url("../../../../assets/img/undo.png") center center/cover;
+}
+
+.tool-buttons .redo {
+    background: url("../../../../assets/img/redo.png") center center/cover;
+}
+
+.tool-buttons .save {
+    background: url("../../../../assets/img/diskette.png") center center/cover;
+}
+
