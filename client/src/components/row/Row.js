@@ -153,8 +153,8 @@ const Row = ({ content, remove, setSpinner, isEdit, setIsEdit }) => {
             <div className="row">
                 <div className="gender cell">
                     <select onChange={genderChanged} value={gender}>
-                        <option value="Mr.">Mr.</option>
-                        <option value="Mrs.">Mrs.</option>
+                        <option value="מר">מר</option>
+                        <option value="גברת">גברת</option>
                     </select>
                 </div>
                 <div className="first-name cell">
@@ -189,7 +189,7 @@ const Row = ({ content, remove, setSpinner, isEdit, setIsEdit }) => {
     }
 
     return (
-        <div className="row">
+        <div className="row" dir="rtl">
             <div className="gender cell">{guestData.current.title}</div>
             <div className="first-name cell">{guestData.current.firstName}</div>
             <div className="last-name cell">{guestData.current.lastName}</div>

@@ -74,8 +74,8 @@ export const AddGuest = ({ selectedTable, setSpinner }) => {
             <div className="row add-guest">
                 <div className="gender cell">
                     <select onChange={genderChanged} value={gender}>
-                        <option value="Mr.">Mr.</option>
-                        <option value="Mrs.">Mrs.</option>
+                        <option value="מר">מר</option>
+                        <option value="גברת">גברת</option>
                     </select>
                 </div>
                 <div className="first-name cell">

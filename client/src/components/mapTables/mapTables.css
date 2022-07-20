@@ -1,8 +1,9 @@
 .container {
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 90vh;
+    height: 88vh;
 }
 
 .map-container {
@@ -14,3 +15,17 @@
     height: 100%;
 }
 
+
+@media(max-width: 800px) {
+    .container {
+        margin-top: 10rem;
+        flex-direction: column;
+        height: fit-content;
+    }
+
+    .map-container {
+        width: 100%;
+        height: fit-content;
+        margin-bottom: 5rem;
+    }
+}

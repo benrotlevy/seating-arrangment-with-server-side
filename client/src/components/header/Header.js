@@ -22,7 +22,7 @@ export const Header = () => {
     };
     return (
         <>
-            <nav className="nav-container">
+            <nav className="nav-container" dir="rtl">
                 <div className="nav-cell logo-cont">
                     <Link to="./">
                         <img alt="#" src={logoBig} className="logo" />
@@ -30,13 +30,13 @@ export const Header = () => {
                 </div>
                 <div className="nav-cell links-container">
                     <Link to="./">
-                        <div className="nav-btn">Home</div>
+                        <div className="nav-btn">בית</div>
                     </Link>
                     <Link to="./map">
-                        <div className="nav-btn">Seat Map</div>
+                        <div className="nav-btn">מפת שולחנות</div>
                     </Link>
                     <Link to="./guests">
-                        <div className="nav-btn">Seat Allocation</div>
+                        <div className="nav-btn">הושבת אורחים</div>
                     </Link>
                 </div>
 
@@ -49,11 +49,11 @@ export const Header = () => {
                                 setCurrentUser("");
                             }}
                         >
-                            Logout
+                            התנתקות
                         </p>
                     ) : (
                         <Link to="./login">
-                            <p>Login</p>
+                            <p>התחבר</p>
                         </Link>
                     )}
                 </div>

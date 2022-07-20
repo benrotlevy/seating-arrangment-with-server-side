@@ -10,7 +10,7 @@ export const SelectBox = ({ tables, onSelectChange, selectedTable, all }) => {
                     <option
                         key={table.number}
                         value={table.number}
-                    >{`Table ${table.number}`}</option>
+                    >{`שולחן ${table.number}`}</option>
                 );
             }
         }
@@ -44,7 +44,7 @@ export const SelectBox = ({ tables, onSelectChange, selectedTable, all }) => {
         <>
             <select value={selectedTable} onChange={onSelectChange}>
                 <option value={""}>
-                    {all ? "Select Table" : "Choose Table"}
+                    {all ? "הצג לפי שולחן" : "בחר שולחן"}
                 </option>
                 {insertOptions()}
             </select>

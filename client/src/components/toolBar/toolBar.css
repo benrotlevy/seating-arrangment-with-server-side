@@ -54,3 +54,16 @@
     background: url("../../../../assets/img/diskette.png") center center/cover;
 }
 
+@media(max-width: 800px) {
+    .tool-bar {
+        width: 100%;
+        height: fit-content;
+    }
+    .tool-buttons {
+        flex-direction: row;
+        margin-top: 3rem;
+    }
+    .tables {
+        flex-direction: row;
+    }
+}

@@ -89,9 +89,9 @@ const Guests = () => {
     return (
         <>
             {isLoading && <Spinner />}
-            <div>
+            <div dir="rtl">
                 <div className="search">
-                    {`Filter:`}
+                    {`סנן:`}
                     <input
                         className="filter"
                         value={searchInput}

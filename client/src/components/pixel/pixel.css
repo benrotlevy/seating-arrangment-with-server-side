@@ -1,6 +1,6 @@
 .pixel {
-    width: 4rem;
-    height: 4rem;
+    width: 4.7rem;
+    height: 4.7rem;
     /* border: 0.5px solid black; */
 }
 
@@ -11,3 +11,31 @@
     width: 100%;
     height: 100%;
 } */
+
+@media(max-width: 1330px) {
+    .pixel {
+        width: 4rem;
+        height: 4rem;
+    }
+}
+
+@media(max-width: 1160px) {
+    .pixel {
+        width: 3.3rem;
+        height: 3.3rem;
+    }
+}
+
+@media(max-width: 985px) {
+    .pixel {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+}
+
+@media(max-width: 800px) {
+    .pixel {
+        width: 2rem;
+        height: 2rem;
+    }
+}

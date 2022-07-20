@@ -58,19 +58,19 @@ export const Headlines = ({ sortList, list }) => {
         <>
             <div className="row">
                 <div onClick={genderSort} className="gender cell headline">
-                    Title
+                    כינוי
                 </div>
                 <div onClick={firstSort} className="first-name cell headline">
-                    First Name
+                    שם פרטי
                 </div>
                 <div onClick={lastSort} className="last-name cell headline">
-                    Last Name
+                    שם משפחה
                 </div>
                 <div onClick={labelSort} className="label cell headline">
-                    Tag
+                    תווית
                 </div>
                 <div onClick={tableSort} className="table cell headline">
-                    Table
+                    שולחן
                 </div>
                 <div className="empty cell"></div>
             </div>
