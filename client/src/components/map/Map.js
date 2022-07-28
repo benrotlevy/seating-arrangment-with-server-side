@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { useAuthContext } from "../context/Context";
 import { Pixel } from "../pixel/Pixel";
 import "./map.css";
@@ -26,6 +26,8 @@ export const Map = ({
     const { currentUser, setCurrentUser, token } = useAuthContext();
 
     const [matrix, setMatrix] = useState(emptyMatrix);
+
+    // const history = useHistory();
 
     useEffect(() => {
         if (currentUser) {
@@ -59,6 +61,9 @@ export const Map = ({
 
     const handleMapClick = (event) => {
         if (!event.target.id && !event.target.parentElement.id) return;
+        // if (event.target.nodeName === "svg") {
+        //     history.push("/guests", { data: event.target.id });
+        // }
         if (
             event.target.nodeName === "svg" ||
             event.target.className === "matrix-row"

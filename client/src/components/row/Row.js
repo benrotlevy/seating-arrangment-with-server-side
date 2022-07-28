@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usersAPI } from "../../api/api";
 import { useAuthContext } from "../context/Context";
 import { SelectBox } from "../selectBox/SelectBox";
@@ -51,11 +51,13 @@ const Row = ({ content, remove, setSpinner, isEdit, setIsEdit }) => {
                 title: gender,
                 label: label,
                 table: table,
+                _id: guestData.current._id,
             };
             const userToSave = { ...currentUser };
             let guestToEdit = userToSave.guests.find(
                 (guest) => guest._id === guestData.current._id
             );
+            // console.log(guestToEdit);
 
             if (guestToEdit.table !== newDetailes.table && guestToEdit.table) {
                 const oldTable = userToSave.tables.find(
@@ -67,6 +69,8 @@ const Row = ({ content, remove, setSpinner, isEdit, setIsEdit }) => {
                         guestToEdit.firstName + " " + guestToEdit.lastName
                 );
             }
+            // console.log(userToSave.tables);
+
             if (newDetailes.table) {
                 const newTable = userToSave.tables.find(
                     (table) => table.number === Number(newDetailes.table)
@@ -75,12 +79,15 @@ const Row = ({ content, remove, setSpinner, isEdit, setIsEdit }) => {
                     newDetailes.firstName + " " + newDetailes.lastName
                 );
             }
+            // console.log(userToSave.tables);
+
             userToSave.guests = userToSave.guests.map((guest) => {
-                if ((guest) => guest._id === guestData.current._id) {
+                if (guest._id === guestData.current._id) {
                     return newDetailes;
                 }
                 return guest;
             });
+            // console.log(userToSave);
 
             setSpinner(true);
             const { data } = await usersAPI.patch(
@@ -114,7 +121,7 @@ const Row = ({ content, remove, setSpinner, isEdit, setIsEdit }) => {
                     const tableToChange = userToSave.tables.find((table) => {
                         return table.number === Number(guestData.current.table);
                     });
-                    console.log(tableToChange);
+                    // console.log(tableToChange);
                     tableToChange.guests = tableToChange.guests.filter(
                         (guest) => {
                             return (
@@ -138,7 +145,7 @@ const Row = ({ content, remove, setSpinner, isEdit, setIsEdit }) => {
                     }
                 );
                 setSpinner(false);
-                console.log(data);
+                // console.log(data);
                 setCurrentUser(data);
                 // remove(data.id);
             } catch (error) {
@@ -196,7 +203,7 @@ const Row = ({ content, remove, setSpinner, isEdit, setIsEdit }) => {
             <div className="label cell">{guestData.current.label}</div>
             <div className="table cell">
                 {guestData.current.table
-                    ? `Table ${guestData.current.table}`
+                    ? `שולחן ${guestData.current.table}`
                     : ""}
             </div>
             {insertEditDelete()}

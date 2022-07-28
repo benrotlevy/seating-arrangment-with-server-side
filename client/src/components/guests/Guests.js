@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Redirect, useHistory } from "react-router-dom";
 import { AddGuest } from "../addGuest/AddGuest";
 import { useAuthContext } from "../context/Context";
 import { Headlines } from "../headlines/Headlines";
@@ -9,7 +9,7 @@ import { Spinner } from "../spinner/Spinner";
 import "./guests.css";
 
 const Guests = () => {
-    // const location = useLocation();
+    const history = useHistory();
 
     const [isLoading, setIsLoading] = useState(false);
     const [isEdit, setIsEdit] = useState(false);
@@ -20,13 +20,17 @@ const Guests = () => {
     const { currentUser, token } = useAuthContext();
 
     useEffect(() => {
+        if (history.location.state) {
+            console.log(history.location.state);
+            // console.log(location.state);
+            setSelectedTable(history.location.state.data.toString());
+        }
+    }, []);
+
+    useEffect(() => {
         if (currentUser) {
             setGuestsList(currentUser.guests);
         }
-        // if (location.state) {
-        //     console.log(location.state);
-        //     setSelectedTable(location.state);
-        // }
     }, [currentUser]);
 
     useEffect(() => {
@@ -63,7 +67,14 @@ const Guests = () => {
         return guestsListToDisplay.map((guest) => {
             return (
                 <Row
-                    key={guest._id}
+                    key={
+                        guest._id +
+                        guest.firstName +
+                        guest.lastName +
+                        guest.table +
+                        guest.label +
+                        guest.title
+                    }
                     content={guest}
                     remove={removeGuest}
                     isEdit={isEdit}

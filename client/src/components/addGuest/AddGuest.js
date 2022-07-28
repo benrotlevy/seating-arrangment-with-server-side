@@ -8,7 +8,7 @@ export const AddGuest = ({ selectedTable, setSpinner }) => {
     const { token, currentUser, setCurrentUser } = useAuthContext();
     const [firstNameVal, setFirstNameVal] = useState("");
     const [LastNameVal, setLastNameVal] = useState("");
-    const [gender, setGender] = useState("Mr.");
+    const [gender, setGender] = useState("מר");
     const [labelVal, setLabelVal] = useState("");
     const [table, setTable] = useState("");
     const [defaultMode, setDefaultMode] = useState(true);
@@ -60,7 +60,7 @@ export const AddGuest = ({ selectedTable, setSpinner }) => {
             setCurrentUser(data);
             setFirstNameVal("");
             setLabelVal("");
-            setGender("Mr.");
+            setGender("מר");
             setLastNameVal("");
             setTable("");
         } catch (error) {
