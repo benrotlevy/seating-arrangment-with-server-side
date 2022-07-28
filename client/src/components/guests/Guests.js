@@ -3,6 +3,7 @@ import { Redirect, useHistory } from "react-router-dom";
 import { AddGuest } from "../addGuest/AddGuest";
 import { useAuthContext } from "../context/Context";
 import { Headlines } from "../headlines/Headlines";
+import { Login } from "../login/Login";
 import Row from "../row/Row";
 import { SelectBox } from "../selectBox/SelectBox";
 import { Spinner } from "../spinner/Spinner";

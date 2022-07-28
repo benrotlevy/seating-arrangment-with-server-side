@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { usersAPI } from "../../api/api";
 import { useAuthContext } from "../context/Context";
 import "./login.css";
 
-export const Login = () => {
+export const Login = (props) => {
     const { token, setToken, setCurrentUser } = useAuthContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    // const history = useHistory();
 
     const sendDetailes = async () => {
         try {
@@ -22,13 +23,10 @@ export const Login = () => {
         }
     };
 
-    if (token)
-        return (
-            // <div className="login">
-            //     <h4>you are logged in</h4>
-            // </div>
-            <Redirect to={"/map"} />
-        );
+    if (token) {
+        // history.goBack();
+        return <Redirect to={"/map"} />;
+    }
 
     return (
         <div className="login">
