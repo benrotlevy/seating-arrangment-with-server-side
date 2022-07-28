@@ -102,6 +102,7 @@ export const Map = ({
 
     const findNumberForTable = () => {
         let num = 1;
+        currentUser.tables.sort((a, b) => a.number - b.number);
         for (let table of currentUser.tables) {
             if (table.number !== num) break;
             num++;

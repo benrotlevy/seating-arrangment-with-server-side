@@ -30,6 +30,9 @@ export const BigTable = ({ guestsList, num }) => {
             shapeRendering="geometricPrecision"
             textRendering="geometricPrecision"
         >
+            <text x="22" y="7" fontSize="0.5rem">
+                {num}
+            </text>
             <ellipse
                 rx="3.057494"
                 ry="2.92456"

@@ -8,8 +8,14 @@
 .table-num {
     position: absolute;
     left: 50%;
+    /* top: 50%; */
     transform: translate(-50%, 100%);
     font-size: 0.9rem;
+    /* z-index: -1; */
+}
+
+rect {
+    /* opacity: 0.9; */
 }
 
 .chosen {

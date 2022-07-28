@@ -30,6 +30,9 @@ export const LongTable = ({ guestsList, num }) => {
             shapeRendering="geometricPrecision"
             textRendering="geometricPrecision"
         >
+            <text x="20" y="15" fontSize="0.5rem">
+                {num}
+            </text>
             <ellipse
                 rx="2.43021"
                 ry="2.517447"

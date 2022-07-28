@@ -30,6 +30,9 @@ export const SquareTable = ({ guestsList, num }) => {
             shapeRendering="geometricPrecision"
             textRendering="geometricPrecision"
         >
+            <text x="20" y="8" fontSize="0.5rem">
+                {num}
+            </text>
             <ellipse
                 rx="3.177966"
                 ry="3.240279"

@@ -30,6 +30,9 @@ export const RoundTable = ({ guestsList, num }) => {
             shapeRendering="geometricPrecision"
             textRendering="geometricPrecision"
         >
+            <text x="22" y="12" fontSize="0.5rem">
+                {num}
+            </text>
             <ellipse
                 rx="2.376641"
                 ry="2.320054"
