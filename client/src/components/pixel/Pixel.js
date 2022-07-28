@@ -8,7 +8,11 @@ export const Pixel = ({ table, id, chosen }) => {
     if (table?.type === 1) {
         return (
             <div className={"pixel " + `${chosen && "chosen"}`} id={id}>
-                <RoundTable guestsList={table.guests}></RoundTable>
+                {/* <div className="table-num">{table.number}</div> */}
+                <RoundTable
+                    num={table.number}
+                    guestsList={table.guests}
+                ></RoundTable>
             </div>
         );
     }
@@ -16,7 +20,11 @@ export const Pixel = ({ table, id, chosen }) => {
     if (table?.type === 2) {
         return (
             <div className={"pixel " + `${chosen && "chosen"}`} id={id}>
-                <LongTable guestsList={table.guests}></LongTable>
+                {/* <div className="table-num">{table.number}</div> */}
+                <LongTable
+                    num={table.number}
+                    guestsList={table.guests}
+                ></LongTable>
             </div>
         );
     }
@@ -24,7 +32,11 @@ export const Pixel = ({ table, id, chosen }) => {
     if (table?.type === 3) {
         return (
             <div className={"pixel " + `${chosen && "chosen"}`} id={id}>
-                <SquareTable guestsList={table.guests}></SquareTable>
+                {/* <div className="table-num">{table.number}</div> */}
+                <SquareTable
+                    num={table.number}
+                    guestsList={table.guests}
+                ></SquareTable>
             </div>
         );
     }
@@ -32,7 +44,11 @@ export const Pixel = ({ table, id, chosen }) => {
     if (table?.type === 4) {
         return (
             <div className={"pixel " + `${chosen && "chosen"}`} id={id}>
-                <BigTable guestsList={table.guests}></BigTable>
+                {/* <div className="table-num">{table.number}</div> */}
+                <BigTable
+                    num={table.number}
+                    guestsList={table.guests}
+                ></BigTable>
             </div>
         );
     }

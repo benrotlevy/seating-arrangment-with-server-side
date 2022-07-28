@@ -4,6 +4,7 @@ export const SelectBox = ({ tables, onSelectChange, selectedTable, all }) => {
     const insertOptions = () => {
         if (!tables) return;
         const arrOfOptions = [];
+        tables.sort((a, b) => a.number - b.number);
         for (let table of tables) {
             if (!isTableFull(table.type, table.guests) || all) {
                 arrOfOptions.push(

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const SquareTable = ({ guestsList }) => {
+export const SquareTable = ({ guestsList, num }) => {
     const [guestsIndicators, setGuestsIndicators] = useState(
         Array(12).fill(false)
     );
@@ -23,7 +23,7 @@ export const SquareTable = ({ guestsList }) => {
 
     return (
         <svg
-            id="3"
+            id={num}
             xmlns="http://www.w3.org/2000/svg"
             xmlnslink="http://www.w3.org/1999/xlink"
             viewBox="0 0 50 50"

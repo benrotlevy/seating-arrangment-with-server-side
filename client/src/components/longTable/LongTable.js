@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const LongTable = ({ guestsList }) => {
+export const LongTable = ({ guestsList, num }) => {
     const [guestsIndicators, setGuestsIndicators] = useState(
         Array(16).fill(false)
     );
@@ -23,7 +23,7 @@ export const LongTable = ({ guestsList }) => {
 
     return (
         <svg
-            id="2"
+            id={num}
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 0 50 50"
