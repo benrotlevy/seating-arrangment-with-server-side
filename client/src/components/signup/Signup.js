@@ -64,7 +64,7 @@ export const Signup = () => {
                 <p>
                     if you already have account please{" "}
                     <Link to="./login">
-                        <span style={{ color: "blue" }}>Login</span>
+                        <span style={{ color: "blue" }}>login</span>
                     </Link>
                 </p>
             </div>
