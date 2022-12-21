@@ -5,7 +5,7 @@ dotenv.config();
 
 const uri = process.env.MONGOOSE_URI;
 
-mongoose.set("strictQuery", true);
+// mongoose.set("strictQuery", true);
 
 mongoose.connect(uri, (error, mongoConnectionInstance) => {
     if (error) throw new Error("Mongoose Connection failed, Error: " + error);
