@@ -12,6 +12,7 @@ export const Login = (props) => {
 
     const sendDetailes = async () => {
         try {
+            console.log(email, password);
             const { data } = await usersAPI.post("/users/login", {
                 email,
                 password,
@@ -22,6 +23,14 @@ export const Login = (props) => {
             console.log(error);
         }
     };
+
+    function setFields({ target }) {
+        if (target.name == "email") {
+            setEmail(target.value);
+        } else if (target.name == "password") {
+            setPassword(target.value);
+        }
+    }
 
     if (token) {
         // history.goBack();
@@ -36,14 +45,14 @@ export const Login = (props) => {
                     type="email"
                     value={email}
                     placeholder="email"
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={setFields}
                 />
                 <input
                     type="password"
                     name="password"
                     value={password}
                     placeholder="password"
-                    onChange={(e) => setPassword(e.target.value)}
+                    onChange={setFields}
                 />
                 <button onClick={sendDetailes}>login</button>
                 <p>
