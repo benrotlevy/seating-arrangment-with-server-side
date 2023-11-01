@@ -1,7 +1,6 @@
 const { Router } = require("express");
 const User = require("../db/models/users.js");
 const auth = require("../db/middleware/auth.js");
-const { async } = require("rxjs");
 
 const users = Router();
 

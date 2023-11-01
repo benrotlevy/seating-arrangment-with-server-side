@@ -27,9 +27,9 @@ const PORT = process.env.PORT || 5000;
 const publicDirectoryPath = path.join(__dirname, "client/build");
 app.use(express.static(publicDirectoryPath));
 
-app.get("/*", (req, res) => {
-    res.sendFile(publicDirectoryPath);
-});
+// app.get("/*", (req, res) => {
+//     res.sendFile(publicDirectoryPath);
+// });
 
 app.use(cors());
 app.use(express.json());
