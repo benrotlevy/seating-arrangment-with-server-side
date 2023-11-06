@@ -5,6 +5,7 @@ import { useAuthContext } from "../context/Context";
 import "./login.css";
 
 export const Login = (props) => {
+    // console.log("login");
     const { token, setToken, setCurrentUser } = useAuthContext();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");

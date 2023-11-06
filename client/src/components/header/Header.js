@@ -29,13 +29,13 @@ export const Header = () => {
                     </Link>
                 </div>
                 <div className="nav-cell links-container">
-                    <Link to="./">
+                    <Link to="/">
                         <div className="nav-btn">בית</div>
                     </Link>
-                    <Link to="./map">
+                    <Link to="/map">
                         <div className="nav-btn">מפת שולחנות</div>
                     </Link>
-                    <Link to="./guests">
+                    <Link to="/guests">
                         <div className="nav-btn">הושבת אורחים</div>
                     </Link>
                 </div>

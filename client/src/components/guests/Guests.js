@@ -10,6 +10,7 @@ import { Spinner } from "../spinner/Spinner";
 import "./guests.css";
 
 const Guests = () => {
+    // console.log("guests");
     const history = useHistory();
 
     const [isLoading, setIsLoading] = useState(false);
